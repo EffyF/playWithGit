@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by effyfeng 8:12 PM 7/20/18
  *
- *其实就是把上一个方向是哪里来的记录了下来 然后就拼成了一条路 路里面的字母刻画这条路的样子 像密码
+ 其实就是把上一个方向是哪里来的记录了下来 然后就拼成了一条路 路里面的字母刻画这条路的样子 像密码
  [[1,1,0],
  [0,1,1],
  [0,0,0],
@@ -17,11 +17,9 @@ import java.util.*;
  1: slul
  2: slul
  add e:
- 1 s l u l e e e e
- 2 s l u*e l e e e
- 我们用e来标记和表示该层recursion结束了== 表示了岛屿状态
-
-
+ 1: s l u l e e e e
+ 2: s l u*e l e e e
+ 我们用e来标记和表示该层recursion结束了 == 表示了岛屿状态
 
  **/
 public class NumDistinctIslands {
@@ -34,7 +32,6 @@ public class NumDistinctIslands {
                 if(grid[i][j]==1){
                     StringBuilder sb=new StringBuilder();
                     dfs(grid,i,j,sb,"s"); // start
-                    // grid[i][j]=0;
                     set.add(sb.toString());
                 }
             }

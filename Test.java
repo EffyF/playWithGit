@@ -5,6 +5,7 @@ import java.util.Queue;
 
 /**
  * Created by effyfeng 10:44 AM 5/27/19
+ * 基础bfs当时竟然还是没有掌握牢的，并不懂bfs 每个边被generate 1次和因此每个node 被expand 1次这个道理
  **/
 public class Test {
     // test
@@ -28,12 +29,14 @@ public class Test {
         while (!q.isEmpty()) {
             int size = q.size();
             for (int i = 0; i < size; i++) {
-                int[] cur = q.poll();//poll出来是同一个1是没有关系的 只会被写当前层， 只要不进入到下一层就行
+                int[] cur = q.poll();
+                //poll出来是同一个1是没有关系的 只会被写当前层， 只要不进入到下一层就行
+                //-- 上面的评论是错的， 同一个node 1只会被expand一次，因为所有指向这个1的边只有一条被generate了
+                // 所以不会有同一个1被多次poll出来的情况！！！！
 
                 /**为什么可以直接写dis这个dis肯定最小
-                 * 因为我mark visit保证每个1只被expand1次
-                 * 不会再次在更长的距离上expand **/
-                if (matrix[cur[0]][cur[1]] == 1) {
+                 * 因为bfs最先碰到的就是最小距离 **/
+                if (matrix[cur[0]][cur[1]] == 1 ) {
                     matrix[cur[0]][cur[1]] = dis;
                 }
                 for (int[] dir : directions) {
@@ -41,10 +44,10 @@ public class Test {
                     int nextj = dir[1] + cur[1];
                     if (nexti >= 0 && nexti < matrix.length && nextj >= 0 && nextj < matrix[0].length
                             && matrix[nexti][nextj] == 1 && !visited[nexti][nextj]) {
-                        /**如果没有被generat（visited）过的话 才去generate以及在generate时去mark改点**/
+                        //同一个1保证只被generate1次 只会被放到queue一次
+                        /**如果没有被generate（visited）过的话 才去generate以及在generate时去mark该点**/
                         q.add(new int[]{nexti, nextj});
                         visited[nexti][nextj] = true;
-
                     }
                 }
             }

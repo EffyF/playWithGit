@@ -6,4 +6,5 @@ package Hashing;
 public class Test {
     //test
     //change cool_kid
+    //change cool_kid_1
 }

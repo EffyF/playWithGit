@@ -14,8 +14,6 @@ import java.util.*;
  */
 public class GroupShiftedStrings {
 
-
-
     public static void main(String[] args) {
 //        String[] a = {"abc", "bcd", "bd","acef", "xyz", "az", "ba", "a", "z"};
         String[] a = {"ba",  "az"};

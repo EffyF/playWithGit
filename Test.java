@@ -20,7 +20,6 @@ public class Test {
     //change cool_kid_7
     //change cool_kid_8
     /**** ======= ****/
-    // test
 
     //check out a branch
 
